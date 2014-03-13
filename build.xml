@@ -3,22 +3,32 @@
     <description>Builds, tests, and runs the project PingPong.</description>
     <!-- NOTE: Uncomment this line if you're working with NetBeans. -->
     <!-- <import file="nbproject/build-impl.xml"/> -->
-    <property name="src.dir" location="src" />
-    <property name="lib.dir" location="lib" />
-    <property name="build.dir" location="build" />
-    <property name="archive.dir" location="archive" />
+    <property name="src.dir" location="./src" />
+    <property name="lib.dir" location="./lib" />
+    <property name="test.dir" location="./test" />
+    <property name="build.dir" location="./build" />
+    <property name="archive.dir" location="./archive" />
     <property name="classes.dir" location="${build.dir}/classes" />
+    <property name="test.classes.dir" location="${build.dir}/classes" />
+    <path id="test.classpath">
+      <pathelement location="${classes.dir}" />
+      <pathelement location="${test.classes.dir}" />
+      <pathelement location="${lib.dir}/junit-4.11.jar" />
+    </path>
     <target name="clean">
       <delete dir="${build.dir}" />
       <delete dir="${archive.dir}" />
+      <mkdir dir="${test.classes.dir}" />
     </target>
     <target name="prepare">
       <tstamp/>
       <mkdir dir="${classes.dir}" />
       <mkdir dir="${archive.dir}" />
+      <mkdir dir="${test.classes.dir}" />
     </target>
     <target name="compile" depends="prepare">
       <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false" />
+      <javac srcdir="${test.dir}" destdir="${test.classes.dir}" includeantruntime="true" />
     </target>
     <target name="build" depends="compile">
       <jar destfile="${archive.dir}/PingPong-${DSTAMP}.jar" basedir="${classes.dir}">
@@ -27,7 +37,17 @@
         </manifest>
       </jar>
     </target>
-    <target name="run" depends="clean, build">
+    <target name="test" depends="clean, build">
+      <junit haltonfailure="true">
+        <test name="GameTest" />
+        <formatter type="plain" usefile="false" />
+<!--         <classpath>
+          <pathelement location="${classes.dir}" />
+        </classpath> -->
+        <classpath refid="test.classpath" />
+      </junit>
+    </target>
+    <target name="run" depends="clean, build, test">
       <java jar="${archive.dir}/PingPong-${DSTAMP}.jar" fork="true" />
     </target>
 </project>
