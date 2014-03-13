@@ -13,10 +13,10 @@ public class Scoreboard {
         int score = 0;
 
         for (Set set : this.sets) {
-            for (Rally rally : set.rallies) {
+            for (Rally rally : set.getRallies()) {
                 if (rally != null 
-                    && rally.forTeam == team 
-                    && rally.outcome = RallyOutcome.Point) {
+                    && rally.getForTeam() == team
+                    && rally.getOutcome() == RallyOutcome.Point) {
                     score++;
                 }
             }
@@ -29,8 +29,8 @@ public class Scoreboard {
         int count = 0;
 
         for (Set set : this.sets) {
-            if (set.rallies != null) {
-                set.rallies.length;
+            if (set.getRallies() != null) {
+                count += set.getRallies().length;
             }
         }
 
@@ -41,8 +41,8 @@ public class Scoreboard {
         int points = 0;
 
         for (Set set : this.sets) {
-            for (Rally rally : set.rallies) {
-                if (rally != null && rally.outcome == RallyOutcome.Point) {
+            for (Rally rally : set.getRallies()) {
+                if (rally != null && rally.getOutcome() == RallyOutcome.Point) {
                     points++;
                 }
             }
