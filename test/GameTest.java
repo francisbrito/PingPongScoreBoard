@@ -2,7 +2,9 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
 
+import java.lang.RuntimeException;
 import java.lang.IllegalStateException;
+import java.lang.IllegalArgumentException;
 
 public class GameTest {
     private Game game;
@@ -36,6 +38,7 @@ public class GameTest {
     @Test
     public void testStartSetsCurrentSetToFirstSet() {
         this.game.setNumberOfSets(3);
+        this.game.start();
 
         Set firstSet = this.game.getSets()[0];
 
@@ -48,11 +51,29 @@ public class GameTest {
     public void testStartSetsStateToStarted() {
         this.game.setNumberOfSets(3);
         this.game.start();
-        
+
         GameState state = this.game.getState();
 
         assertEquals("Game#start should set state to started."
                      , GameState.Started
                      , state);
+    }
+
+    @Test(expected=IllegalStateException.class)
+    public void testGetCurrentSetThrowsIfGameNotStarted() {
+        this.game.getCurrentSet();
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testSetNumberOfSetsThrowsIfGivenANonPositiveNumber() {
+        this.game.setNumberOfSets(-1);
+        this.game.setNumberOfSets(0);
+    }
+
+    @Test(expected=IllegalStateException.class)
+    public void testGoToSetThrowsIfGameNotStarted() {
+        this.game.setNumberOfSets(3);
+
+        this.game.goToSet(1);
     }
 }

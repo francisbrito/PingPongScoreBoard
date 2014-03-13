@@ -8,6 +8,7 @@
  * @author Kevin
  */
 
+import java.lang.IllegalArgumentException;
 import java.lang.IllegalStateException;
 import java.lang.RuntimeException;
 
@@ -44,7 +45,7 @@ public class Game {
     }
     public Set getCurrentSet()
     {
-        if (sets == null) {
+        if (this.state == GameState.NotSet) {
             throw new IllegalStateException();
         }
 
@@ -57,11 +58,15 @@ public class Game {
     }
     public void setNumberOfSets(int sets)
     {
+        if (sets <= 0) {
+            throw new IllegalArgumentException();
+        }
+
         this.sets = new Set[sets];
     }
     public void goToSet(int number)
     {
-        if (sets == null) {
+        if (this.state == GameState.NotSet) {
             throw new IllegalStateException();
         }
 
