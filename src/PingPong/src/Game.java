@@ -12,13 +12,14 @@ import java.lang.IllegalStateException;
 import java.lang.RuntimeException;
 
 public class Game {
-    
     private GameState state;
     private int currentSet;
     
     private Set[] sets;
 
     private Team[] teams;
+
+    private Scoreboard scoreboard;
 
     public Game()
     {

@@ -8,13 +8,18 @@
  * @author Kevin
  */
 public class Team {
-    
     private int number;
-    private int score;
-    
-    public Team(int playerCount)
+
+    public Team(int number)
     {
-       
+        this.number = number;
     }
-    
+
+    public int getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
 }
