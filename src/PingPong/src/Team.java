@@ -9,4 +9,12 @@
  */
 public class Team {
     
+    private int number;
+    private int score;
+    
+    public Team(int playerCount)
+    {
+       
+    }
+    
 }
