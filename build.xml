@@ -4,10 +4,10 @@
     <!-- NOTE: Uncomment this line if you're working with NetBeans. -->
     <!-- <import file="nbproject/build-impl.xml"/> -->
     <property name="src.dir" location="src" />
+    <property name="lib.dir" location="lib" />
     <property name="build.dir" location="build" />
     <property name="archive.dir" location="archive" />
     <property name="classes.dir" location="${build.dir}/classes" />
-
     <target name="clean">
       <delete dir="${build.dir}" />
       <delete dir="${archive.dir}" />
