@@ -220,3 +220,7 @@ nbbuild/
 nbdist/
 nbactions.xml
 nb-configuration.xml
+
+# Project specific
+build/
+archive/
