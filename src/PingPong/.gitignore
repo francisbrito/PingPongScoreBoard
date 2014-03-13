@@ -1,0 +1,7 @@
+# Common ignored directories/files.
+archive/
+build/
+
+# Tool-specific files.
+nbproject/
+manifest.mf
