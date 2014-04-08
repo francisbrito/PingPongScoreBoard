@@ -1,12 +1,12 @@
-Requirements
+# Requirements specification
 
-"As a referee, I would like to be able to upload files that already possess the scores, so that I can edit it with my own text editor."
-"As a referee, I would like to be able to add scores to teams, so that we can determine a winner. | fuck people"
-"As a referee, I would like to mark faults to teams, so that I can know if a team was disqualified."
-"As a referee, I would like to be able to save the scoreboard, so that i can retrieve it later."
-"As a referee, I would like to be able to browse between sets, so that i can know what happen on a specific set."
+* As a **referee**, I'd like to be able to upload files containing scores, so that I can create my own scores using a text editor.
 
-The template is this:
-"As a <role>, I want <goal/desire> so that <benefit>"
-We chose it because it was simple and it showed in a very effective and understandable way.
+* As a **referee**, I'd like to be able to add scores to teams, so that I can determine a winner.
+
+* As a **referee**, I'd like to be able to add faults to teams, so that I can keep track of the faults made during a game.
+
+* As a **referee**, I'd like to be able to save the scores to a file, so that I can retrieve them later.
+
+* As a **referee**, I'd like to be able to browser between game sets, so that I can know what happened on a specific set.
 
