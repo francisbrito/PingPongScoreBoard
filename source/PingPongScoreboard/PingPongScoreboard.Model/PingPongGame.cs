@@ -48,6 +48,16 @@ namespace PingPongScoreboard.Model
 
         public void GenerateSets(int numberOfSets)
         {
+            if (_state == PingPongGameState.Started)
+            {
+                throw new InvalidOperationException("'GenerateSets' should be called before starting game.");
+            }
+
+            if (numberOfSets <= 0)
+            {
+                throw new ArgumentException();
+            }
+
             _sets.Clear();
 
             // Fills list of sets.
@@ -79,16 +89,31 @@ namespace PingPongScoreboard.Model
 
         public void GoToNextSet() 
         {
+            if (_currentSetIndex == _sets.Count - 1)
+            {
+                throw new InvalidOperationException("Cannot move past last set.");
+            }
+
             _currentSetIndex++;
         }
 
         public void GoToPreviousSet()
         {
+            if (_currentSetIndex == 0)
+            {
+                throw new InvalidOperationException("Cannot move before first set.");
+            }
+
             _currentSetIndex--;
         }
 
         public void GoToSet(int setNumber)
         {
+            if (setNumber <= 0 || setNumber > _sets.Count)
+            {
+                throw new ArgumentOutOfRangeException("Cannot move outside of bounds of sets.");
+            }
+
             var index = setNumber - 1;
 
             _currentSetIndex = index;
@@ -235,11 +260,21 @@ namespace PingPongScoreboard.Model
 
         public void MarkSetAsPointForTeam(int teamNumber)
         {
+            if (teamNumber <= 0 || teamNumber > 2)
+            {
+                throw new ArgumentOutOfRangeException("'teamNumber' can only be one or two.");
+            }
+
             _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Point, teamNumber);
         }
 
         public void MarkSetAsFaultForTeam(int teamNumber)
         {
+            if (teamNumber <= 0 || teamNumber > 2)
+            {
+                throw new ArgumentOutOfRangeException("'teamNumber' can only be one or two.");
+            }
+
             _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Fault, teamNumber);
         }
 

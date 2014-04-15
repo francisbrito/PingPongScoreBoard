@@ -35,7 +35,7 @@ namespace PingPongScoreboard.Model.Test
         {
             var game = new PingPongGame();
 
-            game.Start();
+            game.End();
 
             var expectedState = PingPongGameState.Finished;
             var actualState = game.State;
@@ -158,7 +158,7 @@ namespace PingPongScoreboard.Model.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void GameGoToSetShouldThrowIfArgumentIsOutsideOfNumberOfSetsBounds()
         {
             var game = new PingPongGame();
@@ -205,7 +205,7 @@ namespace PingPongScoreboard.Model.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void GameMarkSetAsPointForTeamShouldThrowIfArgumentIsNegativeZeroOrGreaterThanTwo()
         {
             var game = new PingPongGame();
@@ -235,7 +235,7 @@ namespace PingPongScoreboard.Model.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void GameMarkSetAsFaultForTeamShouldThrowIfArgumentIsNegativeZeroOrGreaterThanTwo()
         {
             var game = new PingPongGame();
