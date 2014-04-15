@@ -10,7 +10,7 @@
   <Class Name="PingPongScoreboard.Model.Set">
     <Position X="3.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAIEAAAAAAIAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAgAAAAACAAAAAAIIEAAAAIAIAIAAAAAAAAAAIBAAAA=</HashCode>
       <FileName>Set.cs</FileName>
     </TypeIdentifier>
   </Class>
