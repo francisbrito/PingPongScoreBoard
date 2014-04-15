@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40F360AB-AE6D-49B1-8E4B-D2BCAC30A06B}</ProjectGuid>
+    <ProjectGuid>{87C50412-DF56-4455-A334-D435B085C0C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PingPongScoreboard.Specifications</RootNamespace>
-    <AssemblyName>PingPongScoreboard.Specifications</AssemblyName>
+    <RootNamespace>PingPongScoreboard.Model.Test</RootNamespace>
+    <AssemblyName>PingPongScoreboard.Model.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,18 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SpecRun.SpecFlowPlugin">
-      <HintPath>..\packages\SpecRun.SpecFlow.1.2.0\lib\net35\SpecRun.SpecFlowPlugin.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
-    <Reference Include="TechTalk.SpecRun">
-      <HintPath>..\packages\SpecRun.SpecFlow.1.2.0\lib\net35\TechTalk.SpecRun.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -62,66 +53,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AddFaults.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddFaults.feature</DependentUpon>
-    </Compile>
-    <Compile Include="AddFaultsSteps.cs" />
-    <Compile Include="AddScores.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddScores.feature</DependentUpon>
-    </Compile>
-    <Compile Include="AddScoresSteps.cs" />
-    <Compile Include="BasePingPongGameStepDefinition.cs" />
-    <Compile Include="BrowseSets.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BrowseSets.feature</DependentUpon>
-    </Compile>
-    <Compile Include="SaveFile.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SaveFile.feature</DependentUpon>
-    </Compile>
+    <Compile Include="PingPongGameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UploadFile.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UploadFile.feature</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AddFaults.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AddFaults.feature.cs</LastGenOutput>
-    </None>
-    <None Include="AddScores.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>AddScores.feature.cs</LastGenOutput>
-    </None>
-    <None Include="App.config" />
-    <None Include="BrowseSets.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>BrowseSets.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Default.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-    <None Include="runtests.cmd" />
-    <None Include="SaveFile.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SaveFile.feature.cs</LastGenOutput>
-    </None>
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="UploadFile.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>UploadFile.feature.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PingPongScoreboard.Model\PingPongScoreboard.Model.csproj">

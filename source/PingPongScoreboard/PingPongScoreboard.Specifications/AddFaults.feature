@@ -5,6 +5,7 @@
 
 Scenario: Add fault to a team.
 	Given a game is in session
+	And team 1 has 0 faults
 	When I press add fault
 	And I choose team 1
 	Then fault count for team 1 should be increased by one

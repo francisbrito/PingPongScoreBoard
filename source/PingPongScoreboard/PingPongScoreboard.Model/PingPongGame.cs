@@ -48,6 +48,8 @@ namespace PingPongScoreboard.Model
 
         public void GenerateSets(int numberOfSets)
         {
+            _sets.Clear();
+
             // Fills list of sets.
             for (int i = 1; i <= numberOfSets; i++)
             {
@@ -245,13 +247,27 @@ namespace PingPongScoreboard.Model
         {
             _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Invalid, 0);
         }
+
+        public void MarkSetAsFault()
+        {
+            _sets[_currentSetIndex].MarkAsFault();
+        }
+
+        public void SetForTeam(int teamNumber)
+        {
+            _sets[_currentSetIndex].SetForTeam(teamNumber);
+        }
+
+        public void MarkSetAsPoint()
+        {
+            _sets[_currentSetIndex].MarkAsPoint();
+        }
     }
 
     public enum PingPongGameState
     {
         NotSet,
         Started,
-        InSession,
         Finished
     }
 

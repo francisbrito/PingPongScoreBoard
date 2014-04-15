@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{468E84
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPongScoreboard.Specifications", "PingPongScoreboard.Specifications\PingPongScoreboard.Specifications.csproj", "{40F360AB-AE6D-49B1-8E4B-D2BCAC30A06B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingPongScoreboard.Model.Test", "PingPongScoreboard.Model.Test\PingPongScoreboard.Model.Test.csproj", "{87C50412-DF56-4455-A334-D435B085C0C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{40F360AB-AE6D-49B1-8E4B-D2BCAC30A06B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40F360AB-AE6D-49B1-8E4B-D2BCAC30A06B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40F360AB-AE6D-49B1-8E4B-D2BCAC30A06B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C50412-DF56-4455-A334-D435B085C0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C50412-DF56-4455-A334-D435B085C0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C50412-DF56-4455-A334-D435B085C0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C50412-DF56-4455-A334-D435B085C0C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

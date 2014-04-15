@@ -5,7 +5,7 @@
 
 Scenario: Add scores to a team
 	Given a game is in session
-	And there's a team called "team one"
+	And team 1 has 0 points
 	When I press add score
-	And I choose "team one"
-	Then team one' score should be increased by one.
+	And I choose team 1
+	Then score for team 1 should be increased by one
