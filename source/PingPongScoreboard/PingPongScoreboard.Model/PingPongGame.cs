@@ -145,30 +145,105 @@ namespace PingPongScoreboard.Model
                 sb.AppendFormat("{0} {1} {2}\n", number, forTeam, outCome);
             }
 
+            WriteToFile(filePath, sb.ToString());
+        }
+
+        private void WriteToFile(string filePath, string text)
+        {
             using (var writer = File.CreateText(filePath))
             {
-                writer.Write(sb.ToString());
+                writer.Write(text);
             }
         }
 
         private void SaveJsonFile(string filePath)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(_sets);
+
+            WriteToFile(filePath, json);
         }
 
         public void LoadFile(string filePath, AllowedFileFormat format)
         {
-            throw new System.NotImplementedException();
+            _sets.Clear();
+
+            switch (format)
+            {
+                case AllowedFileFormat.Json:
+                    LoadJsonFile(filePath);
+                    break;
+                case AllowedFileFormat.Text:
+                    LoadTextFile(filePath);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void LoadTextFile(string filePath)
+        {
+            var text = ReadFromFile(filePath);
+
+            var lines = text.Split('\n');
+
+            foreach (var line in lines)
+            {
+                var parts = line.Split(' ');
+
+                var number = Convert.ToInt32(parts[0]);
+                var team = Convert.ToInt32(parts[1]);
+
+                var outcome = SetOutcome.NotSet;
+
+                switch (parts[0])
+                {
+                    case "P":
+                        outcome = SetOutcome.Point;
+                        break;
+                    case "F":
+                        outcome = SetOutcome.Fault;
+                        break;
+                    case "I":
+                        outcome = SetOutcome.Invalid;
+                        break;
+                    default:
+                        break;
+                }
+
+                var set = new Set(number);
+                set.MarkAsOutcomeFor(outcome, team);
+
+                _sets.Add(set);
+            }
+        }
+
+        private string ReadFromFile(string filePath)
+        {
+            return File.ReadAllText(filePath);
+        }
+
+        private void LoadJsonFile(string filePath)
+        {
+            var json = ReadFromFile(filePath);
+
+            var sets = JsonConvert.DeserializeObject<List<Set>>(json);
+
+            _sets.AddRange(sets);
         }
 
         public void MarkSetAsPointForTeam(int teamNumber)
         {
-            throw new System.NotImplementedException();
+            _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Point, teamNumber);
         }
 
         public void MarkSetAsFaultForTeam(int teamNumber)
         {
-            throw new System.NotImplementedException();
+            _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Fault, teamNumber);
+        }
+
+        public void MarkSetAsInvalid()
+        {
+            _sets[_currentSetIndex].MarkAsOutcomeFor(SetOutcome.Invalid, 0);
         }
     }
 
