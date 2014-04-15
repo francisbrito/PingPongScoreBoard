@@ -81,13 +81,14 @@ namespace PingPongScoreboard.Model
         public int CalculateFaultsForTeam(int teamNumber)
         {
             // Count sets where outcome is fault for `teamNumber`.
-            var faults = (from set in _sets where set.ForTeam == teamNumber && set.Outcome == SetOutcome.Fault
+            var faults = (from set in _sets
+                          where set.ForTeam == teamNumber && set.Outcome == SetOutcome.Fault
                           select set).Count();
 
             return faults;
         }
 
-        public void GoToNextSet() 
+        public void GoToNextSet()
         {
             if (_currentSetIndex == _sets.Count - 1)
             {
@@ -296,6 +297,36 @@ namespace PingPongScoreboard.Model
         public void MarkSetAsPoint()
         {
             _sets[_currentSetIndex].MarkAsPoint();
+        }
+
+        public void GoToFirstSet()
+        {
+            _currentSetIndex = 0;
+        }
+
+        public void GoToLastSet()
+        {
+            _currentSetIndex = _sets.Count - 1;
+        }
+
+        public bool CanGoToNextSet()
+        {
+            return _currentSetIndex < _sets.Count - 1;
+        }
+
+        public bool CanGoToLastSet()
+        {
+            return _currentSetIndex != _sets.Count - 1;
+        }
+
+        public bool CanGoToPreviousSet()
+        {
+            return _currentSetIndex > 0;
+        }
+
+        public bool CanGoToFirstSet()
+        {
+            return _currentSetIndex != 0;
         }
     }
 

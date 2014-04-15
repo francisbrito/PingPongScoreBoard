@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,27 @@ namespace PingPongScoreboard.Client
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void mniSave_Click(object sender, RoutedEventArgs e)
+        {
+            var filePath = ShowOpenFileDialog();
+        }
+
+        private string ShowOpenFileDialog()
+        {
+            var result = string.Empty;
+
+            var dialog = new OpenFileDialog();
+
+            var diagResult = dialog.ShowDialog();
+
+            if (diagResult.Value)
+            {
+                result = dialog.FileName;
+            }
+
+            return result;
         }
     }
 }
